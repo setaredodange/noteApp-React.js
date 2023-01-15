@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 export default class ColorBox extends Component {
   render() {
     return (
-      <div>
-        
-      </div>
+      <div className='color-box' style={{backgroundColor: 'red'}}>
+                
+            </div>
     )
   }
 }
