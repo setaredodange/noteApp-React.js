@@ -29,7 +29,7 @@ export default class NoteApp extends Component {
    this.addNote = this.addNote.bind(this)
    this.noteTitleHandler = this.noteTitleHandler.bind(this)
    this.inputColorHandler = this.inputColorHandler.bind(this)
-//    this.removeNote =  this.removeNote.bind(this)
+   this.removeNote =  this.removeNote.bind(this)
    this.emptyInputTitle = this.emptyInputTitle.bind(this)
  }
 
@@ -67,6 +67,21 @@ export default class NoteApp extends Component {
         }
     })
 
+ }
+
+ removeNote (noteId){
+    console.log(noteId);
+    let newNotes = [...this.state.notes]
+
+    // findIndex splice
+
+   let mainNoteIndex = newNotes.findIndex (note=> {
+    return note.id === noteId
+   })
+   newNotes.splice (mainNoteIndex, 1)
+   this.setState ({
+    notes : newNotes
+   })
  }
 
 
@@ -118,7 +133,7 @@ export default class NoteApp extends Component {
                               <div className="row">
                                   <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
                                    {this.state.notes.map(note =>(
-                                            <Note {...note}  key={note.id}/>
+                                            <Note {...note}  key={note.id} onRemove={this.removeNote }/>
                                    ))}
                                     
 
