@@ -9,10 +9,11 @@ this.props.onRemove(id)
 
 
   render() {
+    
     return (
       <div>
         <div className="card shadow-sm rounded" 
-        style={{ backgroundColor: this.props.color }}
+        style={{  }}
         onClick= {this.clickHandler.bind(this, this.props.id)}>
 
           <p className="card-text p-3">{this.props.title} </p>
@@ -22,3 +23,8 @@ this.props.onRemove(id)
     )
   }
 }
+
+// let {title, color} = this.props
+// {title} 
+// backgroundColor: color 
+
