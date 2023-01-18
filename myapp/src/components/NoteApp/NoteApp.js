@@ -71,17 +71,25 @@ export default class NoteApp extends Component {
 
  removeNote (noteId){
     console.log(noteId);
-    let newNotes = [...this.state.notes]
+  //   let newNotes = [...this.state.notes]
 
-    // findIndex splice
+  //   // findIndex splice
 
-   let mainNoteIndex = newNotes.findIndex (note=> {
-    return note.id === noteId
-   })
-   newNotes.splice (mainNoteIndex, 1)
-   this.setState ({
-    notes : newNotes
-   })
+  //  let mainNoteIndex = newNotes.findIndex (note=> {
+  //   return note.id === noteId
+  //  })
+  //  newNotes.splice (mainNoteIndex, 1)
+  //  this.setState ({
+  //   notes : newNotes
+  //  })
+  let oldNotes = [...this.state.notes]
+  let newNotes = oldNotes.filter (note => {
+    return note.id !== noteId
+  })
+  this.setState ({
+      notes : newNotes
+     })
+
  }
 
 
